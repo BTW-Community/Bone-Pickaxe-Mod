@@ -52,7 +52,7 @@ public class BPMRecipesRibCutting implements IRecipe{
 	 {
 	    	int iItemID = stack.itemID;
    		
-	    	if ( iItemID == BPMDefinitions.flintKnife.itemID //||
+	    	if ( stack.getItem() instanceof BPMItemKnife //||
 	    		/*iItemID == SuperBTWDefinitions.ironBlade.itemID*/ )
 	    	{
 	    		
@@ -136,7 +136,7 @@ public class BPMRecipesRibCutting implements IRecipe{
 		        		
 		        	case 1:
 		        		
-		            	//resultStack = new ItemStack(BPMDefinitions.leatherWorkingIron, 1, 30);
+		            	resultStack = new ItemStack(BPMDefinitions.ribCuttingIron, 1, 75);
 		            	break;
 		        		
 		        	default:

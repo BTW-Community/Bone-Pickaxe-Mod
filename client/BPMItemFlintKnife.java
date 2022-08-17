@@ -9,9 +9,12 @@ public class BPMItemFlintKnife extends BPMItemKnife
 	{
 		super(iItemID);
 		setUnlocalizedName( "SuperBTWItemFlintBlade" );  
+		SetFilterableProperties( Item.m_iFilterable_Narrow );
 		this.setCreativeTab(CreativeTabs.tabTools);
 		this.setMaxDamage(durability);
 		m_iWeaponDamage = 3; //slightly weaker than stone axe
+		
+        this.setMaxDamage(durability);
 	}
 	
 	public int getMaterial()

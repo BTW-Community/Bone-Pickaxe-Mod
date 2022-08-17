@@ -27,7 +27,6 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.Set;
 
-//import net.minecraft.client.Minecraft;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.FCAddOnHandler.DependencyType;
 
@@ -317,7 +316,6 @@ public abstract class FCAddOn {
 		if (!MinecraftServer.getServer().isSinglePlayer()) {
 			//AARON
 			FCUtilsWorld.SendPacketToPlayer(serverHandler, new Packet3Chat("\u00a7f" + addonName + " " + versionString));
-
 			if (shouldVersionCheck) {
 				ByteArrayOutputStream byteArrayOutput = new ByteArrayOutputStream();
 				DataOutputStream dataOutput = new DataOutputStream(byteArrayOutput);
@@ -336,8 +334,7 @@ public abstract class FCAddOn {
 		}
 		else {
 			//AARON
-			FCUtilsWorld.SendPacketToPlayer(serverHandler, new Packet3Chat("\u00a7f" + addonName + " " + versionString));
-		}
+			FCUtilsWorld.SendPacketToPlayer(serverHandler, new Packet3Chat("\u00a7f" + addonName + " " + versionString));		}
 	}
 
 	/**
@@ -379,88 +376,4 @@ public abstract class FCAddOn {
 	public String GetLanguageFilePrefix() {
 		return this.prefix;
 	}
-
-	//----------- Client Side Functionality -----------//
-
-	//------ Override Methods ------//
-	/*
-	 * These are methods which should be overridden 
-	 * to add functionality to your addon
-	 */
-
-	/**
-	 * @return true if the packet has been processed, false otherwise
-	 */
-//	public boolean ClientCustomPacketReceived(Minecraft mcInstance, Packet250CustomPayload packet) {
-//		return false;
-//	}
-	/**
-	 * Used to modify existing client side packet250 behavior (For modifying BTW behavior)
-	 * @return true if packet was handled, false otherwise
-	 */
-//	public boolean interceptCustomClientPacket(Minecraft mc, Packet250CustomPayload packet) {
-//		return false;
-//	}
-
-	/**
-	 * @return true if the packet has been processed, false otherwise
-	 */
-//	public boolean ClientPlayCustomAuxFX(Minecraft mcInstance, World world, EntityPlayer player, int iFXID, int i, int j, int k, int iFXSpecificData) {
-//		return false;
-//	}
-
-	/**
-	 * Spawns a custom particle based on a string specifying the type
-	 * @return the spawned particle, or null if type is not handled
-	 */
-//	public EntityFX spawnCustomParticle(World world, String particleType, double x, double y, double z, double velX, double velY, double velZ) {
-//		return null;
-//	}
-
-	//------ Internal Methods ------//
-	/*
-	 * These methods are used for internal processing and should
-	 * not be touched unless you know what you're doing
-	 */
-
-	/**
-	 * Called when the version check packet is received by the NetClientHandler
-	 * If overriding, make sure to make a call to the super method
-	 * @return true if packet was handled, false otherwise
-	 */
-//	public boolean versionCheckPacketReceived(Minecraft mc, Packet250CustomPayload packet) {
-//		try {
-//			WorldClient world = mc.theWorld;
-//			DataInputStream dataStream = new DataInputStream(new ByteArrayInputStream(packet.data));
-//
-//			String var33 = dataStream.readUTF();
-//
-//			if (!var33.equals(versionString)) {
-//				mc.thePlayer.addChatMessage("\u00a74" + "WARNING: " + this.getName() + " version mismatch detected! Local Version: " + this.versionString + " Server Version: " + var33);
-//			}
-//
-//			ByteArrayOutputStream byteArrayOutput = new ByteArrayOutputStream();
-//			DataOutputStream dataOutput = new DataOutputStream(byteArrayOutput);
-//
-//			try {
-//				dataOutput.writeUTF(versionString);
-//			}
-//			catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//
-//			// TODO: Re-enable ack packet checking
-//			//Packet250CustomPayload ackPacket = new Packet250CustomPayload(addonCustomPacketChannelVersionCheckAck, byteArrayOutput.toByteArray());
-//			//mc.getNetHandler().addToSendQueue(ackPacket);
-//
-//			mc.thePlayer.addChatMessage("\u00a7f" + addonName + " version check successful.");
-//
-//			return true;
-//		}
-//		catch (IOException var23) {
-//			var23.printStackTrace();
-//		}
-//
-//		return false;
-//	}
 }

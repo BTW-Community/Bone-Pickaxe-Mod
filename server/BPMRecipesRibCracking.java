@@ -2,7 +2,8 @@ package net.minecraft.src;
 
 import java.util.ArrayList;
 
-public class BPMRecipesLeatherCutting implements IRecipe{
+public class BPMRecipesRibCracking implements IRecipe
+{
 	public static ItemStack blade;
 
 	 public boolean matches( InventoryCrafting craftingInventory, World world )
@@ -16,7 +17,7 @@ public class BPMRecipesLeatherCutting implements IRecipe{
 
 	            if ( tempStack != null )
 	            {
-	                if ( isBlade( tempStack ) )
+	                if ( isBlade( tempStack ) && !isLowQualityAxe(tempStack) )
 	                {
 	                	if ( bladeStack == null )
 	                	{
@@ -52,8 +53,8 @@ public class BPMRecipesLeatherCutting implements IRecipe{
 	 {
 	    	int iItemID = stack.itemID;
    		
-	    	if ( stack.getItem() instanceof BPMItemKnife //||
-	    		/*iItemID == SuperBTWDefinitions.ironBlade.itemID*/ )
+	    	if ( stack.getItem() instanceof FCItemAxe )
+	    			//&& ((FCItemAxe) stack.getItem()).toolMaterial.getHarvestLevel() <= 1) //||
 	    	{
 	    		
 	    		return true;
@@ -62,11 +63,16 @@ public class BPMRecipesLeatherCutting implements IRecipe{
 	    	return false;
 	 }
 	 
+		private boolean isLowQualityAxe(ItemStack stack)
+		{
+			return isBlade(stack) && ((FCItemAxe) stack.getItem()).toolMaterial.getHarvestLevel() <= 1;
+		}
+	 
 	 private boolean isLeather( ItemStack stack )
 	 {
 	    	int iItemID = stack.itemID;
 	    		    		
-	    	if ( iItemID == Item.leather.itemID )
+	    	if ( iItemID == BPMDefinitions.beefRib.itemID )
 	    	{
 	    		return true;	
 	    	}
@@ -85,7 +91,7 @@ public class BPMRecipesLeatherCutting implements IRecipe{
 
 		            if ( tempStack != null )
 		            {
-		                if ( isBlade( tempStack ) )
+		                if ( isBlade( tempStack ) && !isLowQualityAxe(tempStack))
 		                {
 		                	if ( bladeStack == null )
 		                	{
@@ -117,38 +123,10 @@ public class BPMRecipesLeatherCutting implements IRecipe{
 		        if ( leatherStack != null && bladeStack != null )
 		        {
 		        	ItemStack resultStack = null;
-		        	
-		        	ItemStack inheritedBlade = bladeStack;
-		        	
 
-		        	BPMItemKnife bladeItem = (BPMItemKnife)bladeStack.getItem();
-	            	NBTTagCompound newTag = new NBTTagCompound();
-	            	
-		        	switch (bladeItem.getMaterial()) {
-		        	
-		        	case 0:
 
-		            	resultStack = new ItemStack(BPMDefinitions.leatherCutting, 1, 150); //this value must match!
-		            	break;
-		            	
-		            	//test output
-		            	//resultStack = bladeStack;
-		        		
-		        	case 1:
-		        		
-		            	resultStack = new ItemStack(BPMDefinitions.leatherCuttingIron, 1, 30);
-		            	break;
-		        		
-		        	default:
-		        		
-		            	return null;
-		        	
-		        	}
-	            	
-	            	resultStack.setTagCompound(newTag);
-	            	resultStack.getTagCompound().setInteger("damage", inheritedBlade.getItemDamage());
-		            
-	            	
+		            resultStack = new ItemStack(Item.beefRaw, 1); //this value must match!
+
 		            return resultStack;
 
 		        }

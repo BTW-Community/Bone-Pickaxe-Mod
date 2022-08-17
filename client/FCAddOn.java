@@ -317,7 +317,6 @@ public abstract class FCAddOn {
 		if (!MinecraftServer.getServer().isSinglePlayer()) {
 			//AARON
 			FCUtilsWorld.SendPacketToPlayer(serverHandler, new Packet3Chat("\u00a7f" + addonName + " " + versionString));
-
 			if (shouldVersionCheck) {
 				ByteArrayOutputStream byteArrayOutput = new ByteArrayOutputStream();
 				DataOutputStream dataOutput = new DataOutputStream(byteArrayOutput);
@@ -336,8 +335,7 @@ public abstract class FCAddOn {
 		}
 		else {
 			//AARON
-			FCUtilsWorld.SendPacketToPlayer(serverHandler, new Packet3Chat("\u00a7f" + addonName + " " + versionString));
-		}
+			FCUtilsWorld.SendPacketToPlayer(serverHandler, new Packet3Chat("\u00a7f" + addonName + " " + versionString));		}
 	}
 
 	/**

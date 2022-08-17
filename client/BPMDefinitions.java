@@ -14,7 +14,9 @@ public class BPMDefinitions {
 		id_flintKnapping = 20009,
 		id_leatherCutting = 20010,
 		id_ribCutting = 20011,
-		id_branch = 20012
+		id_branch = 20012,
+		id_leatherCuttingIron = 20013,
+		id_ribCuttingIron = 20014
 		;
 	
 	private static final int
@@ -34,6 +36,9 @@ public class BPMDefinitions {
 	public static Item ribCutting;
 	public static Item branch;
 	public static Item deathClub;
+	public static Item ironKnife;
+	public static Item leatherCuttingIron;
+	public static Item ribCuttingIron;
 	
 	public static Block branchBlock;
 	public static Block timeCube;
@@ -59,6 +64,9 @@ public class BPMDefinitions {
 		ribCutting = new BPMItemRibCutting(id_ribCutting - 256);
 		branch = new BPMItemBranch(id_branch - 256);
 		deathClub = new BPMItemDeathClub(id_deathClub - 256);
+		ironKnife = new BPMItemIronKnife(id_ironKnife - 256);
+		leatherCuttingIron = new BPMItemLeatherCuttingIron(id_leatherCuttingIron - 256);
+		ribCuttingIron = new BPMItemRibCuttingIron(id_ribCuttingIron - 256);
 		
 		FCBetterThanWolves.fcBlockHempCrop = Block.replaceBlock(FCBetterThanWolves.fcBlockHempCrop.blockID, BPMBlockHempCrop.class, BPM.instance);
 	

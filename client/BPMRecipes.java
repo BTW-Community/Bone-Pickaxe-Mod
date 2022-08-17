@@ -22,12 +22,18 @@ public class BPMRecipes extends FCRecipes
 	{
 		CraftingManager.getInstance().getRecipeList().add( new BPMRecipesLeatherCutting() );
 		CraftingManager.getInstance().getRecipeList().add( new BPMRecipesRibCutting() );
+		CraftingManager.getInstance().getRecipeList().add( new BPMRecipesKnifeReturn() );
+		CraftingManager.getInstance().getRecipeList().add( new BPMRecipesRibCracking() );
 		
 		AddMillStoneRecipe( new ItemStack( Item.dyePowder, 6, 15 ), new ItemStack( BPMDefinitions.rib, 1) );
 		
 		FCRecipes.AddShapelessRecipe(
-				new ItemStack(BPMDefinitions.flintKnapping, 1),
+				new ItemStack(BPMDefinitions.flintKnapping, 1, 10),
 				new ItemStack[] { new ItemStack(Item.flint), new ItemStack(FCBetterThanWolves.fcItemStone) });
+		
+		FCRecipes.AddShapelessRecipe(
+				new ItemStack(BPMDefinitions.ironKnife, 1),
+				new ItemStack[] { new ItemStack(FCBetterThanWolves.fcItemNuggetIron), new ItemStack(FCBetterThanWolves.fcItemNuggetIron) });
 		
 		FCRecipes.AddShapelessRecipe(new ItemStack(BPMDefinitions.bonePickaxe, 1), new ItemStack[] {
 				new ItemStack(BPMDefinitions.rib), new ItemStack(Item.silk), new ItemStack(Item.stick) });
@@ -128,6 +134,33 @@ public class BPMRecipes extends FCRecipes
 		FCRecipes.AddShapelessRecipe(new ItemStack(FCBetterThanWolves.fcItemMeatCured, 2),
 				new ItemStack[] { new ItemStack(FCBetterThanWolves.fcItemNitre), new ItemStack(FCBetterThanWolves.fcItemNitre),
 						new ItemStack(BPMDefinitions.beefRib) });
+		
+	//Instead, use a Recipes type class	
+//		FCRecipes.AddShapelessRecipe(new ItemStack(Item.beefRaw, 1),
+//				new ItemStack[] { new ItemStack(BPMDefinitions.beefRib), new ItemStack(FCBetterThanWolves.fcItemRefinedAxe),
+//						new ItemStack(BPMDefinitions.beefRib) });
+//		FCRecipes.AddShapelessRecipe(new ItemStack(Item.beefRaw, 1),
+//				new ItemStack[] { new ItemStack(BPMDefinitions.beefRib), new ItemStack(FCBetterThanWolves.fcItemBattleAxe),
+//						new ItemStack(BPMDefinitions.beefRib) });
+//		FCRecipes.AddShapelessRecipe(new ItemStack(Item.beefRaw, 1),
+//				new ItemStack[] { new ItemStack(BPMDefinitions.beefRib), new ItemStack(Item.axeDiamond),
+//						new ItemStack(BPMDefinitions.beefRib) });
+//		FCRecipes.AddShapelessRecipe(new ItemStack(Item.beefRaw, 1),
+//				new ItemStack[] { new ItemStack(BPMDefinitions.beefRib), new ItemStack(Item.axeIron),
+//						new ItemStack(BPMDefinitions.beefRib) });
+//		FCRecipes.AddShapelessRecipe(new ItemStack(Item.beefRaw, 1),
+//				new ItemStack[] { new ItemStack(BPMDefinitions.beefRib), new ItemStack(Item.axeGold),
+//						new ItemStack(BPMDefinitions.beefRib) });
+//		FCRecipes.AddShapelessRecipe(new ItemStack(Item.beefRaw, 1),
+//				new ItemStack[] { new ItemStack(BPMDefinitions.beefRib), new ItemStack(Item.axeStone),
+//						new ItemStack(BPMDefinitions.beefRib) });
+//		
+//		FCRecipes.AddShapelessRecipe(new ItemStack(Item.beefRaw, 1),
+//				new ItemStack[] { new ItemStack(BPMDefinitions.beefRib), new ItemStack(Item.swordIron),
+//						new ItemStack(BPMDefinitions.beefRib) });
+//		FCRecipes.AddShapelessRecipe(new ItemStack(Item.beefRaw, 1),
+//				new ItemStack[] { new ItemStack(BPMDefinitions.beefRib), new ItemStack(Item.swordDiamond),
+//						new ItemStack(BPMDefinitions.beefRib) });
 	
 		
 	}

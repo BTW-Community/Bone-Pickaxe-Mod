@@ -183,7 +183,7 @@ public class BPMBlockHempCrop extends BlockCrops
 	private boolean getValidTool(ItemStack item) {
 		// TODO Auto-generated method stub
     	
-    	if (item.itemID == BPMDefinitions.flintKnife.itemID) return true;
+    	if (item.getItem() instanceof BPMItemKnife) return true;
     	if (item.getItem() instanceof FCItemShears) return true;
     	//if (itemID == SuperBTWDefinitions.ironBlade.itemID) return true;
 		return false;
