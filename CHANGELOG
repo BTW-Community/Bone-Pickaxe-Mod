@@ -1,0 +1,121 @@
+Bone Pickaxe Mod (AKA BPM)
+Started project 13 July, 2022
+Updated to 1.1 14 August, 2022
+Updated to 1.2 17 August, 2022
+Started 2.0 update 5 January, 2023
+
+CHANGELOG V2.0
+
+TODO- Added Yany's Hardcore Hell from Yany's Stuff&Things Addon
+        >https://www.sargunster.com/btwforum/viewtopic.php?t=9873&start=25
+        >Big shout out to Yany, creator of amazing addons
+        
+TODO- Add config for branch dropping maybe? Or just disable it, who knows
+
+- Tweaked hunger system so that the player can jump and move around longer before starving.
+- Tweaked hunger system so that the player starves slower in general 
+TODO: DETECT IF DAWN MOD IS INSTALLED TO PREVENT CRASH
+        > Check SCDecoIntegration.java
+
+***
+CHANGELOG V 1.2
+
+- Updated the mod to support CE 1.4.1 (sweet dreams!)
+
+- Added the iron knife, a sharper, more durable knife
+
+- Added recipes to return knives to your inventory if they are being used to cut something
+
+- Added recipes for cracking open ribs using axes, it's faster than cutting in a pinch
+
+- Changed flint knapping to match the system in SBTW. You are now allowed 3 bad hits before the flint shatters and blinds you
+
+***
+CHANGELOG V 1.1:
+
+- Fixed issue where knives did not break webs properly
+
+- Fixed issue where THE DEATH CLUB wasn't in the mod
+
+- Fixed issue where leaves did not drop branches on decay
+
+***
+CHANGELOG V 1.0:
+
+- Added new cow drop: beef rib
+    >can be cooked in an oven or in a pan
+
+- Added new item: the rib bone
+    > can be acquired by cutting a hunk of beef rib    
+    
+- Added new tool: the bone pickaxe
+    > crafted from a cow's rib bone
+    
+- Added old block: the workbench/crafting table
+    >crafted with an iron ingot and 8 planks
+    
+Added new tool type: knives
+NOTE: can't add proper animations without editing the player class, so those are left out in this version
+    >crafted with flint + stone 
+    > can carve wood, cut branches, cut hemp, carve ribs, cut leather
+    > can stab things with them
+    
+Added new leather armor and tanned leather armor recipes using cut leather
+    > Leather can be cut with knives (new progress recipe, like knitting!)
+    > recipes fit within the 2x2 inventory crafting grid
+
+Added old tool: the stone hoe  
+    
+Added new item: branches
+    >can be dropped by leaves, generated on forest floor
+    >can be used to craft primitive tools
+    
+Added Hardcore Bible Murder
+    
+Added the MEAT CUBE!  
+
+Added the TIME CUBE!
+
+Changed pigs to always drop 2 pieces of meat when killed
+    
+Changed leather to render into 2 glue
+    >armor rendering recipes have been adjusted accordingly
+
+Changed pork to render into 2 tallow 
+
+~~~
+Item IDs: 20001 - 20014
+Block IDs: 2001 - 2003
+~~~
+
+BASE CLASS EDITS:
+
+V1.0
+BlockCactus.java
+FCAddon.java
+FCEntityCow.java
+EnumToolMaterial
+FCBlockLeaves
+BlockLeaves
+FCItemHoe
+FCItemStone
+FCBlockWeb
+
+V2.0
+EntityPlayerMP
+FCBlockLeaves (again to change branch drops)
+
+BASE CLASS OVERRIDES:
+FCBlockHempCrop -> BPMBlockHempCrop
+
+
+~~~~~~~~~~~~~~~~~
+
+BASIC FEATURE LIST FOR 1.0 RELEASE:
+X-> cow drops beef rib
+X-> flint + stone = flint knife
+X-> knife can carve rib into beef
+X-> knife can cut leather
+X-> knife can cut hemp + branches
+X-> new leather armor recipes in 2x2 grid
+X-> bone pick
